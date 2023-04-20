@@ -1,0 +1,23 @@
+#app {
+    padding: 5vh 0;
+    background-image: url("./assets/images/wallpaper.png");
+    height: 100vh;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    overflow: hidden;
+}
+
+#app.darkTheme {
+    background-image: url("./assets/images/wallpaperDarkTheme.png");
+}
+
+#lightmodeToggle {
+    width: 40px;
+    object-fit: contain;
+    position: fixed;
+    top: 4vh;
+    right: 2.5vw;
+}

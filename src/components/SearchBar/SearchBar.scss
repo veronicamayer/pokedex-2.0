@@ -1,0 +1,33 @@
+#searchBar {
+    width: 85vw;
+    position: fixed;
+    top: 3vh;
+    left: 7.5vw;
+    z-index: 1;
+    padding: 2vh 0;
+
+    input {
+        line-height: 3.5rem;
+        border: none;
+        box-shadow: 0px 0px 45px -3px rgb(187, 187, 187);
+        padding: 0 2vw;
+        border-radius: 20px;
+        letter-spacing: 0.15rem;
+    }
+}
+
+#searchBar.darkTheme {
+    input {
+        box-shadow: 0px 0px 45px -3px rgba(103, 103, 103, 0.619);
+        background-color: #7b7979;
+        color: white;
+    }
+
+    input::placeholder {
+        color: rgba(255, 255, 255, 0.624);
+    }
+
+    input:focus {
+        outline: none;
+    }
+}

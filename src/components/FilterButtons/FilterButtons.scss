@@ -1,0 +1,32 @@
+#filterButtons {
+    width: 80vw;
+    top: 13vh;
+    left: 10vw;
+    text-align: center;
+    color: white;
+    font-size: 0.8rem;
+    position: fixed;
+
+    .labelButton {
+        display: inline-block;
+        padding: 10px 25px;
+        border-radius: 5px;
+        margin: 5px;
+        text-transform: capitalize;
+    }
+
+    .labelButton.selected {
+        border: 2px solid #ff534f;
+        box-shadow: 0px 0px 15px -3px rgba(0, 0, 0, 0.5);
+    }
+
+    input {
+        display: none;
+    }
+}
+
+#filterButtons.darkTheme {
+    label {
+        filter: brightness(80%);
+    }
+}
