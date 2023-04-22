@@ -1,13 +1,10 @@
 #searchBar {
     width: 85vw;
-    position: fixed;
-    top: 3vh;
-    left: 7.5vw;
-    z-index: 1;
+    margin: auto;
     padding: 2vh 0;
 
     input {
-        line-height: 3.5rem;
+        line-height: 3rem;
         border: none;
         box-shadow: 0px 0px 45px -3px rgb(187, 187, 187);
         padding: 0 2vw;

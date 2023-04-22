@@ -1,41 +1,70 @@
+#detailsContainer {
+    overflow: hidden;
+    width: 27%;
+
+    button {
+        position: absolute;
+        top: 32.5vh;
+        right: 7vw;
+        z-index: 2;
+        background-color: white;
+        padding: 5px 10px;
+        border-radius: 100%;
+        border-width: 3px;
+        font-weight: 600;
+        visibility: hidden;
+        animation: hide 1s ease-out 1s forwards;
+    }
+}
+
 .detailsPage {
     padding: 15px;
     text-align: center;
     border-radius: 15px;
-
-    #allTypes {
-        display: flex;
-        justify-content: center;
-        width: calc(100% - 30px);
-        position: absolute;
-        top: 43%;
-        z-index: 1;
-        color: white;
-
-        .types {
-            width: fit-content;
-            padding: 5px 25px;
-            border-radius: 5px;
-            margin: 0 1vw;
-        }
-    }
+    position: relative;
+    height: fit-content;
+    transition: all 1s;
+    animation-name: grow;
+    animation-duration: 0.5s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
 
     .imgContainer {
         background-color: rgba(#000000, 0.4);
         text-align: center;
-        padding: 5% 0 5% 0;
+        padding: 10% 0 10% 0;
         border-radius: 3px 3px 0 0;
+        position: relative;
 
         img {
-            height: 25vh;
+            height: 19vh;
+            width: 80%;
+            object-fit: contain;
             margin: auto;
             display: inline-block;
+        }
+
+        #allTypes {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            width: 100%;
+            position: absolute;
+            bottom: -7%;
+            z-index: 1;
+            color: white;
+
+            .types {
+                width: fit-content;
+                padding: 5px 25px;
+                border-radius: 5px;
+            }
         }
     }
 
     .info {
         background-color: rgba(#ffffff, 0.7);
-        padding: 8% 0 5% 0;
+        padding: 8% 2% 5% 2%;
         position: relative;
         border-radius: 0 0 3px 3px;
 
@@ -52,12 +81,14 @@
                 margin: 0;
                 padding-right: 7px;
                 text-transform: capitalize;
+                font-size: 0.8rem;
             }
 
             p {
                 width: 50%;
                 text-align: left;
                 margin: 0;
+                font-size: 0.8rem;
             }
 
             span {
@@ -68,18 +99,18 @@
         }
 
         h2 {
-            font-size: 1rem;
-            margin: 3vh 0 1vh 0;
+            margin: 2vh 0 1vh 0;
             font-weight: 400;
+            font-size: 0.8rem;
         }
 
         p {
             margin: 0;
             padding-left: 7px;
             text-transform: capitalize;
-            font-size: 1rem;
             text-transform: uppercase;
             font-weight: 600;
+            font-size: 0.8rem;
         }
     }
 }
@@ -244,5 +275,26 @@
 
     .card__type {
         background: #ff8a95;
+    }
+}
+
+@keyframes grow {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+@keyframes hide {
+    0% {
+        visibility: hidden;
+    }
+    1% {
+        visibility: visible;
+    }
+    100% {
+        visibility: visible;
     }
 }

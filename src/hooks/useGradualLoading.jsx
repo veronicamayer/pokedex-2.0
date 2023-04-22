@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+import DefaultImage from "../assets/images/defaultImage.png";
 
-export default function useInfiniteScroll(pageNumber) {
+export default function useGradualLoading(pageNumber) {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(false);
     const [pokemonData, setPokemonData] = useState([]);
@@ -13,7 +14,7 @@ export default function useInfiniteScroll(pageNumber) {
         axios({
             method: "GET",
             url: "https://pokeapi.co/api/v2/pokemon",
-            params: { limit: 20, offset: pageNumber },
+            params: { limit: 50, offset: pageNumber },
         })
             .then((res) => {
                 const newPokemonData = res.data.results.map(async (pokemon) => {
@@ -29,9 +30,8 @@ export default function useInfiniteScroll(pageNumber) {
                                   .front_default
                             : pokemonDetails.data.sprites.front_default != null
                             ? pokemonDetails.data.sprites.front_default
-                            : "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/0.png";
+                            : DefaultImage;
                     return {
-                        id: pokemonDetails.data.id,
                         id: `#${pokemonDetails.data.id
                             .toString()
                             .padStart(3, "0")}`,

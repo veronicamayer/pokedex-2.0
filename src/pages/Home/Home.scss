@@ -1,21 +1,13 @@
 #home {
+    #logo {
+        height: 8vh;
+        object-fit: contain;
+        margin-top: 2vh;
+        width: 100%;
+    }
     #listAndDetails {
         display: flex;
-        margin: 22vh 5vw;
-
-        #pokemonList {
-            width: 72%;
-            height: 73vh;
-            overflow: scroll;
-            padding-bottom: 3vh;
-        }
-
-        #details {
-            width: 28%;
-            height: fit-content;
-            position: fixed;
-            top: 27vh;
-            right: 5vw;
-        }
+        gap: 2vw;
+        margin: 2vh 8vw;
     }
 }

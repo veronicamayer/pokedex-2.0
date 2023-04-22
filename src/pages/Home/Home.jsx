@@ -4,6 +4,7 @@ import FilterButtons from "../../components/FilterButtons/FilterButtons";
 import PokemonList from "../../components/PokemonList/PokemonList";
 import { useState } from "react";
 import Details from "../../components/Details/Details";
+import Logo from "../../assets/images/pokeapiLogo.png";
 
 const allTypes = {
     normal: "#A8A77A",
@@ -29,11 +30,14 @@ const allTypes = {
 const Home = ({ isLightMode }) => {
     const [selectedTypes, setSelectedTypes] = useState([]);
     const [searchTerm, setSearchTerm] = useState("");
-    const [selectedPokemonName, setSelectedPokemonName] = useState(null);
+    const [selectedPokemon, setSelectedPokemon] = useState(null);
     const [allTypeColors, setAllTypeColors] = useState(allTypes);
 
     return (
         <section id="home" className={isLightMode ? "" : "darkTheme"}>
+            <a href="/">
+                <img src={Logo} alt="" id="logo" />
+            </a>
             <SearchBar
                 searchTerm={searchTerm}
                 setSearchTerm={setSearchTerm}
@@ -49,11 +53,17 @@ const Home = ({ isLightMode }) => {
                 <PokemonList
                     selectedTypes={selectedTypes}
                     searchTerm={searchTerm}
-                    setSelectedPokemonName={setSelectedPokemonName}
+                    setSelectedPokemon={setSelectedPokemon}
                     isLightMode={isLightMode}
+                    className={
+                        selectedPokemon === null
+                            ? "full-width"
+                            : "partial-width"
+                    }
                 />
                 <Details
-                    pokemon={selectedPokemonName}
+                    pokemon={selectedPokemon}
+                    setSelectedPokemon={setSelectedPokemon}
                     isLightMode={isLightMode}
                     allTypeColors={allTypeColors}
                 />

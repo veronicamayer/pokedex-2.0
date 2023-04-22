@@ -1,5 +1,4 @@
 #app {
-    padding: 5vh 0;
     background-image: url("./assets/images/wallpaper.png");
     height: 100vh;
     background-attachment: fixed;
@@ -7,8 +6,7 @@
     background-repeat: no-repeat;
     background-size: cover;
     font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-    /*     overflow: hidden;
- */
+    overflow: hidden;
 }
 
 #app.darkTheme {
@@ -19,6 +17,6 @@
     width: 40px;
     object-fit: contain;
     position: fixed;
-    top: 4vh;
+    top: 13.3vh;
     right: 2.5vw;
 }

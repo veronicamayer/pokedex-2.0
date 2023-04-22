@@ -1,4 +1,4 @@
-import useInfiniteScroll from "../../hooks/useInfiniteScroll";
+import useGradualLoading from "../../hooks/useGradualLoading";
 import { useState, useEffect, useRef, useCallback } from "react";
 import "./PokemonList.scss";
 import { v4 as uuidv4 } from "uuid";
@@ -6,29 +6,23 @@ import { v4 as uuidv4 } from "uuid";
 const PokemonList = ({
     selectedTypes,
     searchTerm,
-    setSelectedPokemonName,
+    setSelectedPokemon,
     isLightMode,
+    className,
 }) => {
     const [filteredPokemonData, setFilteredPokemonData] = useState([]);
     const [pageNumber, setPageNumber] = useState(0);
+    const [executionCount, setExecutionCount] = useState(0);
 
     const { pokemonData, hasMore, loading, error } =
-        useInfiniteScroll(pageNumber);
+        useGradualLoading(pageNumber);
 
-    const observer = useRef();
-    const lastPokemonRef = useCallback(
-        (node) => {
-            if (loading) return;
-            if (observer.current) observer.current.disconnect();
-            observer.current = new IntersectionObserver((entries) => {
-                if (entries[0].isIntersecting && hasMore) {
-                    setPageNumber((prevPageNumber) => prevPageNumber + 20);
-                }
-            });
-            if (node) observer.current.observe(node);
-        },
-        [loading, hasMore]
-    );
+    useEffect(() => {
+        if (!loading && executionCount < 26) {
+            setPageNumber((prevPageNumber) => prevPageNumber + 50);
+            setExecutionCount((prevCount) => prevCount + 1);
+        }
+    }, [loading, setPageNumber, executionCount]);
 
     useEffect(() => {
         const filteredData = pokemonData
@@ -37,7 +31,7 @@ const PokemonList = ({
                     return true;
                 } else {
                     return pokemon.types
-                        .split(", ")
+                        .map((type) => type.type.name)
                         .some((type) => selectedTypes.includes(type));
                 }
             })
@@ -51,7 +45,11 @@ const PokemonList = ({
     }, [selectedTypes, searchTerm, pokemonData]);
 
     return (
-        <section id="pokemonList" className={isLightMode ? "" : "darkTheme"}>
+        <section
+            id="pokemonList"
+            className={`${className} ${isLightMode ? "" : "darkTheme"}`}
+        >
+            {" "}
             {filteredPokemonData.length === 0 ? (
                 <p id="error">No Pokemon found!</p>
             ) : (
@@ -59,11 +57,8 @@ const PokemonList = ({
                     if (filteredPokemonData.length === index + 1) {
                         return (
                             <button
-                                ref={lastPokemonRef}
                                 key={uuidv4()}
-                                onClick={() =>
-                                    setSelectedPokemonName(pokemon.name)
-                                }
+                                onClick={() => setSelectedPokemon(pokemon.name)}
                             >
                                 <article>
                                     <div>
@@ -83,7 +78,7 @@ const PokemonList = ({
                         return (
                             <button
                                 key={uuidv4()}
-                                onClick={() => setSelectedPokemonName(pokemon)}
+                                onClick={() => setSelectedPokemon(pokemon)}
                             >
                                 <article>
                                     <div>
