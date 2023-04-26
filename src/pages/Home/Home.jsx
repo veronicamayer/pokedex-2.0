@@ -18,7 +18,7 @@ const allTypes = {
     ground: "#E2BF65",
     flying: "#A98FF3",
     psychic: "#F95587",
-    bug: "#A6B91A",
+    bug: "rgb(107, 131, 77)",
     rock: "#B6A136",
     ghost: "#735797",
     dragon: "#6F35FC",

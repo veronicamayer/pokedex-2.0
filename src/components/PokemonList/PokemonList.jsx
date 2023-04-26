@@ -1,5 +1,5 @@
 import useGradualLoading from "../../hooks/useGradualLoading";
-import { useState, useEffect, useRef, useCallback } from "react";
+import { useState, useEffect } from "react";
 import "./PokemonList.scss";
 import { v4 as uuidv4 } from "uuid";
 
@@ -12,17 +12,14 @@ const PokemonList = ({
 }) => {
     const [filteredPokemonData, setFilteredPokemonData] = useState([]);
     const [pageNumber, setPageNumber] = useState(0);
-    const [executionCount, setExecutionCount] = useState(0);
 
-    const { pokemonData, hasMore, loading, error } =
-        useGradualLoading(pageNumber);
+    const { pokemonData, hasMore, loading } = useGradualLoading(pageNumber);
 
     useEffect(() => {
-        if (!loading && executionCount < 26) {
+        if (!loading && hasMore) {
             setPageNumber((prevPageNumber) => prevPageNumber + 50);
-            setExecutionCount((prevCount) => prevCount + 1);
         }
-    }, [loading, setPageNumber, executionCount]);
+    }, [loading, hasMore, setPageNumber]);
 
     useEffect(() => {
         const filteredData = pokemonData
