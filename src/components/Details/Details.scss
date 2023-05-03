@@ -230,18 +230,12 @@
 }
 
 @media screen and (min-width: 2560px) {
-    #detailsContainer {
-        button {
-            top: 23vh;
-            right: 7.5vw;
-        }
-    }
     .detailsPage .imgContainer #allTypes {
         bottom: -4%;
     }
 }
 
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 1024px) {
     #detailsContainer {
         width: 50%;
     }
@@ -262,6 +256,17 @@
 
         .detailsPage {
             width: 60%;
+        }
+    }
+}
+
+@media screen and (max-width: 375px) {
+    #details {
+        h2 {
+            font-size: 0.7rem;
+        }
+        p {
+            font-size: 0.7rem;
         }
     }
 }
