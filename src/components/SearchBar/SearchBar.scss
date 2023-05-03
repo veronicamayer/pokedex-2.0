@@ -4,10 +4,9 @@
     padding: 2vh 0;
 
     input {
-        line-height: 3rem;
         border: none;
         box-shadow: 0px 0px 45px -3px rgb(187, 187, 187);
-        padding: 0 2vw;
+        padding: 2vh 2vw;
         border-radius: 20px;
         letter-spacing: 0.15rem;
     }
@@ -26,5 +25,22 @@
 
     input:focus {
         outline: none;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    #searchBar {
+        width: 70vw;
+        line-height: 1rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    #searchBar {
+        width: 65vw;
+
+        input {
+            padding: 2vh 4vw;
+        }
     }
 }

@@ -10,11 +10,12 @@
 #detailsContainer {
     overflow: hidden;
     width: 27%;
+    position: relative;
 
     button {
         position: absolute;
-        top: 32.5vh;
-        right: 7vw;
+        top: 0vh;
+        right: 0vw;
         z-index: 2;
         background-color: white;
         padding: 5px 10px;
@@ -27,6 +28,7 @@
 }
 
 .detailsPage {
+    margin: 15px 15px 0 0;
     padding: 15px;
     text-align: center;
     border-radius: 15px;
@@ -224,5 +226,42 @@
     }
     100% {
         visibility: visible;
+    }
+}
+
+@media screen and (min-width: 2560px) {
+    #detailsContainer {
+        button {
+            top: 23vh;
+            right: 7.5vw;
+        }
+    }
+    .detailsPage .imgContainer #allTypes {
+        bottom: -4%;
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    #detailsContainer {
+        width: 50%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    #detailsContainer {
+        position: absolute;
+        top: 23vh;
+        left: 0;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+
+        button {
+            right: 19vw;
+        }
+
+        .detailsPage {
+            width: 60%;
+        }
     }
 }

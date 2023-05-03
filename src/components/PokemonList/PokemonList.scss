@@ -6,9 +6,10 @@
     column-gap: 1vw;
     -ms-overflow-style: none;
     scrollbar-width: none;
-    height: 66vh;
+    height: 70vh;
     overflow: scroll;
     padding-bottom: 3vh;
+    margin-top: 15px;
 
     button {
         border: none;
@@ -77,20 +78,69 @@
     }
 }
 
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 1200px) {
     #pokemonList {
-        grid-template-columns: repeat(auto-fit, calc(25vw - 20px));
+        grid-template-columns: repeat(auto-fit, calc(23vw - 10px));
         article {
-            width: calc(25vw - 20px);
+            width: calc(23vw - 10px);
         }
     }
 }
 
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 768px) {
     #pokemonList {
-        grid-template-columns: repeat(auto-fit, calc(45vw - 20px));
+        height: 78vh;
+        row-gap: 3vw;
+        column-gap: 3vw;
+        margin-left: 3vw;
+        grid-template-columns: repeat(auto-fit, calc(27vw - 20px));
         article {
-            width: calc(45vw - 20px);
+            width: calc(27vw - 20px);
+            div:nth-of-type(2) {
+                h2 {
+                    font-size: 0.8rem;
+                }
+            }
+        }
+    }
+    #pokemonList.partial-width {
+        width: 0%;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    #pokemonList {
+        height: 78vh;
+        row-gap: 3vw;
+        column-gap: 3vw;
+        margin-left: 3vw;
+        grid-template-columns: repeat(auto-fit, calc(42vw - 20px));
+        article {
+            width: calc(42vw - 20px);
+            div:nth-of-type(2) {
+                h2 {
+                    font-size: 0.8rem;
+                }
+            }
+        }
+    }
+    #pokemonList.partial-width {
+        width: 0%;
+    }
+}
+
+@media screen and (min-width: 2560px) {
+    #pokemonList {
+        height: 76vh;
+        margin-left: 3vw;
+        grid-template-columns: repeat(auto-fit, calc(13vw - 20px));
+        article {
+            width: calc(13vw - 20px);
+            div:nth-of-type(1) {
+                img {
+                    height: 10vh;
+                }
+            }
         }
     }
 }

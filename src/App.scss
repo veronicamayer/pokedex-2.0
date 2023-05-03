@@ -17,6 +17,26 @@
     width: 40px;
     object-fit: contain;
     position: fixed;
-    top: 13.3vh;
-    right: 2.5vw;
+    top: 13vh;
+    right: 2vw;
+}
+
+@media screen and (max-width: 992px) {
+    #lightmodeToggle {
+        width: 35px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    #lightmodeToggle {
+        width: 35px;
+        top: 13.4vh;
+        right: 5vw;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    #lightmodeToggle {
+        top: 13.2vh;
+    }
 }
